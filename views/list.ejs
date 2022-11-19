@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BLOG</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/send_url.js"></script>
+</head>
+
+<body>
+<%- include('header.ejs'); %>
+  <main>
+    <ul class="list">
+      <!-- 記事の一覧を表示する処理を確認してください -->
+      <% articles.forEach((article)=> { %>
+        <li>
+          <% if(article.category === "limited"){ %>
+            <i>会員限定</i>
+          <%}%>
+          <h2>
+            <%= article.title %>
+          </h2>
+          <p>
+            <%= article.summary %>
+          </p>
+          <!-- 閲覧画面へのリンクの指定方法を確認してください -->
+          <a href="/article/<%= article.id %>">続きを読む</a>
+        </li>
+        <% }) %>
+    </ul>
+  </main>
+</body>
+
+</html>
